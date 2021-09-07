@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import logo from "./logo.svg";
+//import logo from "./logo.svg";
 import "./App.css";
 import { Auth, Hub } from "aws-amplify";
 
@@ -14,31 +14,33 @@ const initialFormState = {
 function App() {
   const [formState, updateFormState] = useState(initialFormState);
   const [user, updateUser] = useState(null);
+  console.log(user);
 
   useEffect(() => {
+    async function checkUser() {
+      try {
+        const user = await Auth.currentAuthenticatedUser();
+        updateUser(user);
+        updateFormState(() => ({ ...formState, formType: "signedIn" }));
+      } catch (err) {
+        //updateUser(null)
+      }
+    }
+    async function setAuthListener() {
+      Hub.listen("auth", (data) => {
+        switch (data.payload.event) {
+          case "signOut":
+            updateFormState(() => ({ ...formState, formType: "signUp" }));
+            break;
+          default:
+            break;
+        }
+      });
+    }
     checkUser();
     setAuthListener();
-  }, []);
-  async function setAuthListener() {
-    Hub.listen("auth", (data) => {
-      switch (data.payload.event) {
-        case "signOut":
-          updateFormState(() => ({ ...formState, formType: "signUp" }));
-          break;
-        default:
-          break;
-      }
-    });
-  }
-  async function checkUser() {
-    try {
-      const user = await Auth.currentAuthenticatedUser();
-      updateUser(user);
-      updateFormState(() => ({ ...formState, formType: "signedIn" }));
-    } catch (err) {
-      //updateUser(null)
-    }
-  }
+  }, [formState]);
+
   function onChange(e) {
     e.persist();
     updateFormState(() => ({ ...formState, [e.target.name]: e.target.value }));
