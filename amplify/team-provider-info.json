@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-snickerdoodleac-dev-132221-authRole",
+      "UnauthRoleArn": "arn:aws:iam::849391563809:role/amplify-snickerdoodleac-dev-132221-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::849391563809:role/amplify-snickerdoodleac-dev-132221-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-snickerdoodleac-dev-132221-deployment",
+      "UnauthRoleName": "amplify-snickerdoodleac-dev-132221-unauthRole",
+      "StackName": "amplify-snickerdoodleac-dev-132221",
+      "StackId": "arn:aws:cloudformation:us-east-2:849391563809:stack/amplify-snickerdoodleac-dev-132221/974aec20-0f9b-11ec-9182-0ae5c0f80fca",
+      "AmplifyAppId": "djml3cpw7nvnm"
+    },
+    "categories": {
+      "auth": {
+        "snickerdoodleacccb7936e": {}
+      }
+    }
+  }
+}
