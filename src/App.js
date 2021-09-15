@@ -3,6 +3,9 @@ import { ethers } from "ethers";
 import "./App.css";
 import SDLogo from "./assets/logo_snicker_darkbg.svg";
 import SDTokenLogo from "./assets/logo_token.svg";
+import NetflixLogo from "./assets/netflix_logo.svg";
+import MMLogo from "./assets/logo_metamask.svg";
+import NikeLogo from "./assets/nike_logo.svg";
 import rewardsIcon from "./assets/rewards.svg";
 import profileIcon from "./assets/profile.svg";
 import profile from "./assets/profile.svg";
@@ -17,6 +20,11 @@ import {
   NumberInputStepper,
   NumberIncrementStepper,
   NumberDecrementStepper,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
   Tabs,
   TabList,
   TabPanels,
@@ -88,6 +96,17 @@ function App() {
         "https://sneakerbardetroit.com/wp-content/uploads/2016/01/kevin-durant-nike-kd-8-all-star-3.jpg",
       detail:
         "You received a NFT of a shoe from Nike because you shared your profile with them",
+    },
+  ];
+
+  const dataPermissionList = [
+    {
+      company: "Netflix",
+      logo: NetflixLogo,
+    },
+    {
+      company: "Nike",
+      logo: NikeLogo,
     },
   ];
 
@@ -251,7 +270,7 @@ function App() {
   }
  */
 
-  function truncate(fullStr) {
+  /* function truncate(fullStr) {
     let separator = "...";
 
     var frontChars = 6;
@@ -262,7 +281,7 @@ function App() {
       separator +
       fullStr.substr(fullStr.length - backChars)
     );
-  }
+  } */
 
   return (
     <div className="App" style={{ height: "100%" }}>
@@ -274,10 +293,10 @@ function App() {
           flexDirection: "row-reverse",
         }}
       >
-        <div>
+        {/* <div>
           <span>Connected Wallet : </span>
           <span style={{ color: "#FFD68F" }}>{truncate(accounts)}</span>
-        </div>
+        </div> */}
       </div>
 
       {pageType === "landing" && (
@@ -1043,10 +1062,105 @@ function App() {
                         </div>
                       </TabPanel>
                       <TabPanel>
-                        <p>two!</p>
+                        {dataPermissionList.map((item) => {
+                          return (
+                            <Accordion allowToggle>
+                              <AccordionItem
+                                style={{
+                                  border: "solid 1px #E0E0E0",
+                                  borderRadius: "10px",
+                                  textAlign: "left",
+                                  padding: "20px",
+                                  marginBottom: "20px",
+
+                                  width: "100%",
+                                }}
+                              >
+                                <h2>
+                                  <AccordionButton
+                                    _focus={{ boxShadow: "none" }}
+                                  >
+                                    <Box flex="1" textAlign="left">
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          alignItems: "center",
+                                        }}
+                                      >
+                                        <img
+                                          src={item.logo}
+                                          alt="netflix logo"
+                                          style={{
+                                            width: "50px",
+                                            marginRight: "25px",
+                                          }}
+                                        />
+                                        <h1 style={{ fontSize: "16px" }}>
+                                          {item.company}
+                                        </h1>
+                                      </div>
+                                    </Box>
+                                    <AccordionIcon />
+                                  </AccordionButton>
+                                </h2>
+                                <AccordionPanel pb={4}>
+                                  <div style={{ marginTop: "20px" }}>
+                                    Permissions
+                                  </div>
+                                </AccordionPanel>
+                              </AccordionItem>
+                            </Accordion>
+                          );
+                        })}
                       </TabPanel>
                       <TabPanel>
-                        <p>three!</p>
+                        <Accordion allowToggle>
+                          <AccordionItem
+                            style={{
+                              border: "solid 1px #E0E0E0",
+                              borderRadius: "10px",
+                              textAlign: "left",
+                              padding: "20px",
+                              marginBottom: "20px",
+
+                              width: "100%",
+                            }}
+                          >
+                            <h2>
+                              <AccordionButton _focus={{ boxShadow: "none" }}>
+                                <Box flex="1" textAlign="left">
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    <img
+                                      src={MMLogo}
+                                      alt="netflix logo"
+                                      style={{
+                                        width: "50px",
+                                        marginRight: "25px",
+                                      }}
+                                    />
+                                    <h1 style={{ fontSize: "16px" }}>
+                                      MetaMask
+                                    </h1>
+                                  </div>
+                                </Box>
+                                <AccordionIcon />
+                              </AccordionButton>
+                            </h2>
+                            <AccordionPanel pb={4}>
+                              <div style={{ marginTop: "20px" }}>
+                                <span>Connected Wallet : </span>
+                                <span style={{ color: "orange" }}>
+                                  {accounts}
+                                </span>
+                              </div>
+                            </AccordionPanel>
+                          </AccordionItem>
+                        </Accordion>
                       </TabPanel>
                     </TabPanels>
                   </Tabs>
