@@ -973,25 +973,10 @@ function App() {
                                   padding: "10px",
                                 }}
                               >
-                                <p style={{ color: "#857DB0" }}>
-                                  Offered Reward(s)
-                                </p>
+                                <p style={{ color: "#857DB0" }}>Reward</p>
 
                                 <p>{item.detail}</p>
                               </div>
-                              <Button
-                                style={{
-                                  backgroundColor: "#232138",
-                                  borderRadius: "25px",
-                                  margin: "10px auto 10px auto",
-                                  minHeight: "52px",
-                                  color: "white",
-                                  width: "50%",
-                                }}
-                                _focus={{ boxShadow: "none" }}
-                              >
-                                Share Profile
-                              </Button>
                             </Box>
                           );
                         })}
@@ -1202,7 +1187,7 @@ function App() {
                 here
               </a>
             </span>{" "}
-            to continue using Sherpa.
+            to continue.
           </h2>
         </div>
       )}
