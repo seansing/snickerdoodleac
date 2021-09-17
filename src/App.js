@@ -31,7 +31,35 @@ import {
   Tab,
   TabPanel,
   Box,
+  Spinner,
 } from "@chakra-ui/react";
+
+//Imports and setups for Ceramic
+import CeramicClient from "@ceramicnetwork/http-client";
+import KeyDidResolver from "key-did-resolver";
+import ThreeIdResolver from "@ceramicnetwork/3id-did-resolver";
+import { DID } from "dids";
+import { ThreeIdConnect, EthereumAuthProvider } from "@3id/connect";
+import { IDX } from "@ceramicstudio/idx";
+
+const API_URL = "https://ceramic-clay.3boxlabs.com";
+const ceramic = new CeramicClient(API_URL);
+
+//for IDX
+const aliases = {
+  alias1: "basicProfile",
+};
+const idx = new IDX({ ceramic, aliases });
+
+const resolver = {
+  ...KeyDidResolver.getResolver(),
+  ...ThreeIdResolver.getResolver(ceramic),
+};
+const did = new DID({ resolver });
+
+ceramic.did = did;
+
+//
 
 const pageStatus = {
   username: "",
@@ -50,10 +78,11 @@ function App() {
   const [page, updatePage] = useState(pageStatus);
   const [accounts, setAccounts] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  /* const [password, setPassword] = useState(""); */
   const [gender, setGender] = useState("");
   const [age, setAge] = useState("");
   const [location, setLocation] = useState("");
+  const [doneClicked, setDoneClicked] = useState(false);
   /* const [user, updateUser] = useState(null); */
   /* console.log(user); */
   const availableRewardsList = [
@@ -122,10 +151,36 @@ function App() {
             const provider = new ethers.providers.Web3Provider(window.ethereum);
             const signer = provider.getSigner();
             try {
-              // Request account access, triggers metamask popup
-              await window.ethereum.enable();
+              // Request account access on Metamask and 3ID connect
+              const threeIdConnect = new ThreeIdConnect();
+              const addresses = await window.ethereum.enable();
+              const authProvider = new EthereumAuthProvider(
+                window.ethereum,
+                addresses[0]
+              );
+              await threeIdConnect.connect(authProvider);
+
+              const provider = await threeIdConnect.getDidProvider();
+              ceramic.did.setProvider(provider);
+              await ceramic.did.authenticate();
+
+              //test idx read
+              const userId = await ceramic.did.id;
+              const result = await idx.get("basicProfile", userId);
+
+              console.log(userId);
+              console.log(result);
+
               // Acccounts now exposed
-              updatePage({ pageType: "signUp" });
+              if (result == null) {
+                updatePage({ pageType: "signUp" });
+              } else {
+                setEmail(result.email);
+                setGender(result.gender);
+                setAge(result.age);
+                setLocation(result.location);
+                updatePage({ pageType: "profilePage" });
+              }
               const accounts = await signer.getAddress();
               console.log(accounts);
               setAccounts(accounts);
@@ -183,12 +238,23 @@ function App() {
     updatePage(() => ({ ...page, [e.target.name]: e.target.value }));
   } */
 
-  function onClickDone() {
-    console.log("email : " + email);
-    console.log("password : " + password);
-    console.log("gender : " + gender);
-    console.log("age : " + age);
-    console.log("location :" + location);
+  async function onClickDone() {
+    setDoneClicked(true);
+    const content = {
+      email: email,
+      gender: gender,
+      age: age,
+      location: location,
+    };
+
+    try {
+      console.log("Registering profile on IDX...");
+      await idx.set("basicProfile", content);
+      console.log("Profile set!");
+    } catch (error) {
+      console.log(error);
+    }
+    setDoneClicked(false);
     updatePage({ pageType: "profilePage" });
   }
 
@@ -315,6 +381,7 @@ function App() {
               flexDirection: "column",
               justifyContent: "space-around",
               textAlign: "center",
+              alignItems: "center",
             }}
           >
             <img
@@ -328,8 +395,15 @@ function App() {
             />
             <h1 style={{ fontSize: "30px", marginTop: "40px" }}>Welcome!</h1>
             <h2 style={{ marginTop: "20px", marginBottom: "40px" }}>
-              Please connect your MetaMask wallet to start.
+              Please connect your MetaMask wallet and 3ID Connect to login.
             </h2>
+            <Spinner
+              thickness="4px"
+              speed="0.65s"
+              emptyColor="#EB5C5D"
+              color="#FFD690"
+              size="xl"
+            />
           </div>
         </Container>
       )}
@@ -387,7 +461,7 @@ function App() {
               />
             </div>
 
-            <div style={{ marginTop: "10px" }}>
+            {/* <div style={{ marginTop: "10px" }}>
               <h2 style={{ paddingBottom: "5px" }}>Password</h2>
               <Input
                 name="password"
@@ -400,7 +474,7 @@ function App() {
                   color: "black",
                 }}
               />
-            </div>
+            </div> */}
             {/*
             <div style={{ paddingTop: "30px" }}>
               <h2 style={{ paddingBottom: "5px" }}>Username</h2>
@@ -772,20 +846,38 @@ function App() {
                 <NumberDecrementStepper />
               </NumberInputStepper>
             </NumberInput>
-            <Button
-              width="30%"
-              style={{
-                backgroundColor: "#232138",
-                borderRadius: "25px",
-                marginTop: "80px",
-                minHeight: "52px",
-                color: "white",
-              }}
-              _focus={{ boxShadow: "none" }}
-              onClick={onClickDone}
-            >
-              Done!
-            </Button>
+            {doneClicked ? (
+              <Button
+                isLoading
+                width="30%"
+                style={{
+                  backgroundColor: "#232138",
+                  borderRadius: "25px",
+                  marginTop: "80px",
+                  minHeight: "52px",
+                  color: "white",
+                }}
+                _focus={{ boxShadow: "none" }}
+                onClick={onClickDone}
+              >
+                Done!
+              </Button>
+            ) : (
+              <Button
+                width="30%"
+                style={{
+                  backgroundColor: "#232138",
+                  borderRadius: "25px",
+                  marginTop: "80px",
+                  minHeight: "52px",
+                  color: "white",
+                }}
+                _focus={{ boxShadow: "none" }}
+                onClick={onClickDone}
+              >
+                Done!
+              </Button>
+            )}
           </div>
         </div>
       )}
