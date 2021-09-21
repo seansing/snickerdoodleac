@@ -108,7 +108,7 @@ function App() {
       company: "Marvel",
       logo: "logo",
       image:
-        "https://i1.wp.com/fangirlish.com/wp-content/uploads/2019/10/Captain-Marvel-Banner.jpg?w=1024&ssl=1",
+        "https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fscottmendelson%2Ffiles%2F2018%2F12%2FCaptain-Marvel-Poster-B-1200x675.jpg",
       detail: `NFT "Captain Marvel"`,
     },
   ];
