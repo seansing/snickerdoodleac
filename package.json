@@ -6,6 +6,7 @@
     "@3id/connect": "^0.2.3",
     "@ceramicnetwork/3id-did-resolver": "^1.4.2",
     "@ceramicnetwork/http-client": "^1.2.2",
+    "@ceramicstudio/idx": "^0.12.2",
     "@chakra-ui/react": "^1.6.7",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",

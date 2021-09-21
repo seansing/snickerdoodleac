@@ -32,6 +32,7 @@ import {
   TabPanel,
   Box,
   Spinner,
+  Switch,
 } from "@chakra-ui/react";
 
 //Imports and setups for Ceramic
@@ -83,6 +84,9 @@ function App() {
   const [age, setAge] = useState("");
   const [location, setLocation] = useState("");
   const [doneClicked, setDoneClicked] = useState(false);
+  const [loginText, setLoginText] = useState(
+    "Please connect your MetaMask wallet and 3ID Connect to login."
+  );
   /* const [user, updateUser] = useState(null); */
   /* console.log(user); */
   const availableRewardsList = [
@@ -164,6 +168,7 @@ function App() {
               ceramic.did.setProvider(provider);
               await ceramic.did.authenticate();
 
+              setLoginText("Success! Logging you in...");
               //test idx read
               const userId = await ceramic.did.id;
               const result = await idx.get("basicProfile", userId);
@@ -395,7 +400,7 @@ function App() {
             />
             <h1 style={{ fontSize: "30px", marginTop: "40px" }}>Welcome!</h1>
             <h2 style={{ marginTop: "20px", marginBottom: "40px" }}>
-              Please connect your MetaMask wallet and 3ID Connect to login.
+              {loginText}
             </h2>
             <Spinner
               thickness="4px"
@@ -1180,10 +1185,17 @@ function App() {
                                     <AccordionIcon />
                                   </AccordionButton>
                                 </h2>
-                                <AccordionPanel pb={4}>
-                                  <div style={{ marginTop: "20px" }}>
-                                    Permissions
-                                  </div>
+                                <AccordionPanel
+                                  pb={4}
+                                  style={{
+                                    display: "flex",
+                                    alignItems: "center",
+                                    marginTop: "20px",
+                                    justifyContent: "space-between",
+                                  }}
+                                >
+                                  <div>Allow access to my profile</div>
+                                  <Switch />
                                 </AccordionPanel>
                               </AccordionItem>
                             </Accordion>
