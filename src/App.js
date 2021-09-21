@@ -85,7 +85,7 @@ function App() {
   const [location, setLocation] = useState("");
   const [doneClicked, setDoneClicked] = useState(false);
   const [loginText, setLoginText] = useState(
-    "Please connect your MetaMask wallet and 3ID Connect to login."
+    "Please connect your MetaMask wallet and IDX to login."
   );
   /* const [user, updateUser] = useState(null); */
   /* console.log(user); */
@@ -163,6 +163,10 @@ function App() {
                 addresses[0]
               );
               await threeIdConnect.connect(authProvider);
+
+              setLoginText(
+                "MetaMask connected! Login into IDX via 3ID Connect..."
+              );
 
               const provider = await threeIdConnect.getDidProvider();
               ceramic.did.setProvider(provider);
