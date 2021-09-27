@@ -3,13 +3,21 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 /* import Amplify from "aws-amplify";
 import config from "./aws-exports"; */
 /* Amplify.configure(config); */
 
+const theme = extendTheme({
+  colors: {
+    brand: {
+      600: "#FFD68F",
+    },
+  },
+}); 
+
 ReactDOM.render(
-  <ChakraProvider>
+  <ChakraProvider theme={theme}>
     <React.StrictMode>
       <App />
     </React.StrictMode>

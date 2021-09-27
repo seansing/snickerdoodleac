@@ -7,8 +7,9 @@ import NetflixLogo from "./assets/netflix_logo.svg";
 import MMLogo from "./assets/logo_metamask.svg";
 import NikeLogo from "./assets/nike_logo.svg";
 import rewardsIcon from "./assets/rewards.svg";
-import profileIcon from "./assets/profile.svg";
+/* import profileIcon from "./assets/profile.svg"; */
 import profile from "./assets/profile.svg";
+import PortfolioTabPanel from "./Components/PortfolioTabPanel";
 /* import { Auth, Hub } from "aws-amplify"; */
 import {
   Button,
@@ -913,7 +914,7 @@ function App() {
               alignItems: "center",
             }}
           >
-            <Tabs align="end" width="100%" variant="enclosed">
+            <Tabs align="end" width="100%" colorScheme="brand">
               <TabList
                 style={{
                   backgroundColor: "#37346e",
@@ -932,29 +933,25 @@ function App() {
                 />
                 <Tab
                   _focus={{ boxShadow: "none" }}
-                  _selected={{ color: "black", bg: "white" }}
                 >
-                  <img
-                    src={rewardsIcon}
-                    alt="Rewards Icon"
-                    style={{ width: "50px", marginRight: "10px" }}
-                  />
+                  Portfolio
+                </Tab>
+                <Tab
+                  _focus={{ boxShadow: "none" }}
+                >
                   Rewards
                 </Tab>
                 <Tab
                   _focus={{ boxShadow: "none" }}
-                  _selected={{ color: "black", bg: "white" }}
                 >
-                  <img
-                    src={profileIcon}
-                    alt="Profile Icon"
-                    style={{ width: "50px", marginRight: "10px" }}
-                  />
                   Profile
                 </Tab>
               </TabList>
 
               <TabPanels>
+                <TabPanel style={{padding:0}}>
+                  <PortfolioTabPanel></PortfolioTabPanel>
+                  </TabPanel>
                 <TabPanel>
                   <Tabs align="center">
                     <TabList>
