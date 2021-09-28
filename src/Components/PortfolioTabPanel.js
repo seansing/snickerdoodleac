@@ -15,6 +15,11 @@ import {
   Button
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react"
+import { defaults } from 'react-chartjs-2';
+import { Line } from "react-chartjs-2";
+
+defaults.font.family = 'Montserrat';
+
 
 function PortfolioTabPanel() {
 
@@ -29,6 +34,55 @@ function PortfolioTabPanel() {
       category:""
     },
   )
+
+  const tokenWorthData = {
+    labels: ["16 Sep", "17 Sep", "18 Sep", "19 Sep", "20 Sep"],
+    datasets: [
+      {
+        label: "Tokens Worth",
+        data: [630, 550, 630, 700,661.70],
+        fill: true,
+        backgroundColor: "#F3EBFF",
+        borderColor: "#3B3371",
+        borderWidth: 4,
+        tension: 0.4,
+        pointRadius: 0
+      },
+    ]
+  };
+
+  const options = {
+    plugins: {
+      legend: {
+        display: false,
+     },
+     labels: {
+       display: false
+     },
+     tooltips: {
+        enabled: false
+     },
+     title: {
+       display: false
+     }
+    },
+     scales: {
+      y: {
+        display: false,
+        beginAtZero:true,
+        grid: {
+          display:false
+        }
+      },
+      x: {
+        grid: {
+          display: false
+        }
+      }
+    },
+  };
+  
+
   const TokenList = [
     {
       image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7_L5U4WcqT-BbF-OfIXgXQwKgsguvbm0AqA&usqp=CAU",
@@ -112,8 +166,8 @@ function PortfolioTabPanel() {
                 <Box style={{textAlign:"left", border:"solid 1px #CEC6FF", borderRadius:"10px", padding: "20px", display: "flex", flexDirection:"column", marginTop: "20px"}}>
                   <h1 style={{fontWeight: 600}}>Tokens Worth</h1>
                   <span style={{fontWeight:"bolder", color: "#3B3370", fontSize: "24px"}}>$661.70</span>
-                  <div>
-                    chart
+                  <div style={{marginTop:"20px"}}>
+                    <Line data={tokenWorthData} options={options} />
                   </div>
                 </Box>
                 </div>
