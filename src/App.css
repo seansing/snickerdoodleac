@@ -40,3 +40,8 @@
     transform: rotate(360deg);
   }
 }
+
+.nftListItem:hover {
+  background-color:  #f6f6f6;
+  cursor: pointer;
+}

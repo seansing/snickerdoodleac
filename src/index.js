@@ -13,6 +13,9 @@ const theme = extendTheme({
     brand: {
       600: "#FFD68F",
     },
+    main: {
+      600:"#232039"
+    }
   },
 }); 
 
