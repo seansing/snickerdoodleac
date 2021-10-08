@@ -4,6 +4,7 @@ import "./App.css";
 import SDLogo from "./assets/logo_snicker_darkbg.svg";
 import SDTokenLogo from "./assets/logo_token.svg";
 import NetflixLogo from "./assets/netflix_logo.svg";
+import AdidasIcon from "./assets/adidasIcon.svg";
 import MMLogo from "./assets/logo_metamask.svg";
 import NikeLogo from "./assets/nike_logo.svg";
 import rewardsIcon from "./assets/rewards.svg";
@@ -13,8 +14,6 @@ import moreIcon from "./assets/more.svg";
 import profile from "./assets/profile.svg";
 import PortfolioTabPanel from "./Components/PortfolioTabPanel";
 import { useDisclosure } from "@chakra-ui/react";
-
-/* import { Auth, Hub } from "aws-amplify"; */
 import {
   Button,
   Input,
@@ -99,9 +98,6 @@ const pageStatus = {
   email: "",
   authCode: "",
   pageType: "landing",
-  /* signInClicked: false,
-  signOutClicked: false,
-  signUpClicked: false, */
   confirmSignUpClicked: false,
 };
 
@@ -109,7 +105,6 @@ function App() {
   const [page, updatePage] = useState(pageStatus);
   const [accounts, setAccounts] = useState("");
   const [email, setEmail] = useState("");
-  /* const [password, setPassword] = useState(""); */
   const [gender, setGender] = useState("");
   const [age, setAge] = useState("");
   const [location, setLocation] = useState("");
@@ -123,8 +118,6 @@ function App() {
     image: "",
     detail: "",
   });
-  /* const [user, updateUser] = useState(null); */
-  /* console.log(user); */
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -169,9 +162,21 @@ function App() {
       detail:
         "You received a NFT of a shoe from Nike because you shared your profile with them",
     },
+    {
+      company: "Adidas",
+      logo: "logo",
+      image: adidasShoe,
+      //"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO2r-lF3OwRSvKtizuachdwdcifPjKm-2dPg&usqp=CAU",
+      detail:
+        "You received a NFT of the ULTRABOOST 20 X JAMES BOND shoes from Adidas because you shared your profile with them",
+    },
   ];
 
   const dataPermissionList = [
+    {
+      company: "Adidas",
+      logo: AdidasIcon,
+    },
     {
       company: "Netflix",
       logo: NetflixLogo,
@@ -250,41 +255,8 @@ function App() {
       });
     }
 
-    //for web 2.0 usage
-    /*
-    async function checkUser() {
-      try {
-        const user = await Auth.currentAuthenticatedUser();
-        updateUser(user);
-        updatePage(() => ({ pageType: "signedIn" }));
-      } catch (err) {
-        //updateUser(null)
-      }
-    }
-    async function setAuthListener() {
-      Hub.listen("auth", (data) => {
-        switch (data.payload.event) {
-          case "signIn":
-            console.log("user signed in");
-            break;
-          case "signOut":
-            updatePage(() => ({ pageType: "signIn" }));
-            break;
-          default:
-            break;
-        }
-      });
-    }
-
-    checkUser();
-    setAuthListener();
-    */
     getWeb3();
   }, []);
-
-  /* function onChange(e) {
-    updatePage(() => ({ ...page, [e.target.name]: e.target.value }));
-  } */
 
   async function onClickDone() {
     setDoneClicked(true);
@@ -325,87 +297,15 @@ function App() {
   }
   const { pageType } = page;
 
-  //for web2 AWS functions
-  /*
-  async function signUp() {
-    const { username, email, password } = page;
-    updatePage(() => ({ ...page, signUpClicked: "true" }));
-
-    try {
-      await Auth.signUp({ username, password, attributes: { email } });
-      updatePage(() => ({
-        ...page,
-        pageType: "confirmSignUp",
-        signUpClicked: false,
-      }));
-    } catch {
-      updatePage(() => ({
-        ...page,
-        signUpClicked: false,
-      }));
-      console.log("error");
-    }
-  }
-  async function confirmSignUp() {
-    const { username, authCode } = page;
-    updatePage(() => ({ ...page, confirmSignUpClicked: "true" }));
-    try {
-      await Auth.confirmSignUp(username, authCode);
-      updatePage(() => ({
-        ...page,
-        pageType: "signIn",
-        confirmSignUpClicked: false,
-      }));
-    } catch {
-      updatePage(() => ({
-        ...page,
-        confirmSignUpClicked: false,
-      }));
-      console.log("error");
-    }
-  }
-  async function signIn() {
-    const { username, password } = page;
-    updatePage(() => ({ ...page, signInClicked: "true" }));
-    try {
-      await Auth.signIn({ username, password });
-      updatePage(() => ({
-        ...page,
-        pageType: "signedIn",
-        signInClicked: false,
-      }));
-    } catch {
-      updatePage(() => ({
-        ...page,
-        signInClicked: false,
-      }));
-      console.log("error");
-    }
-  }
- */
-
-  /* function truncate(fullStr) {
-    let separator = "...";
-
-    var frontChars = 6;
-    var backChars = 4;
-
-    return (
-      fullStr.substr(0, frontChars) +
-      separator +
-      fullStr.substr(fullStr.length - backChars)
-    );
-  } */
-
   return (
-    <div className="App" style={{ height: "100%" }}>
+    <div className="App">
       {pageType === "landing" && (
         <Container
           maxW="sm"
           style={{
             textAlign: "left",
             height: "100%",
-            width: "100%",
+            width: "50%",
             padding: "50px",
           }}
         >
@@ -540,53 +440,6 @@ function App() {
             >
               Continue
             </Button>
-
-            {/*
-            {signUpClicked === false ? (
-              <Button
-                width="100%"
-                style={{
-                  backgroundColor: "#232138",
-                  borderRadius: "25px",
-                  marginTop: "20px",
-                  minHeight: "52px",
-                }}
-                //onClick={signUp}
-                _focus={{ boxShadow: "none" }}
-              >
-                Create Account
-              </Button>
-            ) : (
-              <Button
-                isLoading
-                width="100%"
-                style={{
-                  backgroundColor: "#232138",
-                  borderRadius: "25px",
-                  marginTop: "20px",
-                  minHeight: "52px",
-                }}
-                //onClick={signUp}
-                _focus={{ boxShadow: "none" }}
-              >
-                Create Account
-              </Button>
-            )}
-              */}
-            {/* <h1 style={{ textAlign: "center", marginTop: "20px" }}>
-              Already have an account?{" "}
-              <button
-                style={{ color: "#FFD68F" }}
-                onClick={() =>
-                  updatePage(() => ({
-                    ...page,
-                    pageType: "signIn",
-                  }))
-                }
-              >
-                Sign In
-              </button>
-            </h1> */}
           </div>
         </Container>
       )}
@@ -924,18 +777,45 @@ function App() {
             justifyContent: "space-around",
             alignItems: "center",
             textAlign: "center",
-            height: "100%",
+            height: "1200px",
+            position: "relative",
           }}
         >
+          {/*placeholder for background size adjustment, to remove div backgrounds and also subsequent div's 500px width*/}
+          <div
+            style={{
+              backgroundColor: "#37346d",
+              width: "100%",
+              height: "8.5%",
+            }}
+          >
+            ""
+          </div>
+          <div
+            style={{
+              backgroundColor: "#f2f1f6",
+              width: "100%",
+              height: "4.2%",
+            }}
+          ></div>
           <div
             style={{
               backgroundColor: "white",
               width: "100%",
+              height: "89%",
+            }}
+          ></div>
+          <div
+            style={{
+              backgroundColor: "white",
+              width: "500px",
               height: "100%",
               color: "black",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
+              position: "absolute",
+              top: 0,
             }}
           >
             <Tabs align="end" width="100%" colorScheme="brand">
@@ -1238,6 +1118,7 @@ function App() {
                                         width: "80%",
                                       }}
                                       _focus={{ boxShadow: "none" }}
+                                      onClick={onClose}
                                     >
                                       Share Information
                                     </Button>
@@ -1383,7 +1264,7 @@ function App() {
                                   }}
                                 >
                                   <div>Allow access to my profile</div>
-                                  <Switch />
+                                  <Switch defaultChecked="true" />
                                 </AccordionPanel>
                               </AccordionItem>
                             </Accordion>
@@ -1550,179 +1431,6 @@ function App() {
           </h2>
         </div>
       )}
-
-      {
-        //Sign in page
-        /* {pageType === "signIn" && (
-        <Container
-          maxW="sm"
-          style={{
-            textAlign: "left",
-            height: "100%",
-            width: "100%",
-            padding: "50px",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-around",
-            }}
-          >
-            <img
-              src={SDLogo}
-              alt="Snickerdoodle Logo"
-              style={{
-                marginLeft: "auto",
-                marginRight: "auto",
-                display: "block",
-              }}
-            />
-
-            <div style={{ paddingTop: "30px" }}>
-              <h2 style={{ paddingBottom: "5px" }}>Username</h2>
-              <Input
-                name="username"
-                onChange={onChange}
-                style={{
-                  backgroundColor: "white",
-                  border: "black",
-                  borderRadius: "6px",
-                  color: "black",
-                }}
-              />
-            </div>
-            <div style={{ marginTop: "10px" }}>
-              <h2 style={{ paddingBottom: "5px" }}>Password</h2>
-              <Input
-                name="password"
-                type="password"
-                onChange={onChange}
-                style={{
-                  backgroundColor: "white",
-                  border: "black",
-                  borderRadius: "6px",
-                  color: "black",
-                }}
-              />
-            </div>
-            {signInClicked === false ? (
-              <Button
-                width="100%"
-                style={{
-                  backgroundColor: "#232138",
-                  borderRadius: "25px",
-                  marginTop: "20px",
-                  minHeight: "52px",
-                }}
-                //onClick={signIn}
-                _focus={{ boxShadow: "none" }}
-              >
-                Sign In
-              </Button>
-            ) : (
-              <Button
-                isLoading
-                width="100%"
-                style={{
-                  backgroundColor: "#232138",
-                  borderRadius: "25px",
-                  marginTop: "20px",
-                  minHeight: "52px",
-                }}
-                //onClick={signIn}
-                _focus={{ boxShadow: "none" }}
-              >
-                Sign In
-              </Button>
-            )} 
-            <h1 style={{ textAlign: "center", marginTop: "20px" }}>
-              Don't have an account yet?{" "}
-              <button
-                style={{ color: "#FFD68F" }}
-                onClick={() =>
-                  updatePage(() => ({
-                    ...page,
-                    pageType: "signUp",
-                  }))
-                }
-              >
-                Create Account
-              </button>
-            </h1>
-          </div>
-        </Container>
-      )} */
-      }
-
-      {
-        //Confirm sign up page
-        /* {pageType === "confirmSignUp" && (
-        <Container
-          maxW="sm"
-          style={{
-            textAlign: "left",
-            height: "100%",
-            width: "100%",
-            padding: "50px",
-          }}
-        >
-          <div
-            style={{
-              textAlign: "center",
-              marginTop: "80px",
-            }}
-          >
-            <h1 style={{ fontSize: "30px" }}>Confirmation</h1>
-            <h2 style={{ marginTop: "20px", marginBottom: "40px" }}>
-              Please confirm your account using the 6 digit code we sent to your
-              email address
-            </h2>
-            <Input
-              name="authCode"
-              onChange={onChange}
-              style={{
-                backgroundColor: "white",
-                border: "black",
-                borderRadius: "6px",
-                color: "black",
-              }}
-            />
-            {confirmSignUpClicked === false ? (
-              <Button
-                width="100%"
-                style={{
-                  backgroundColor: "#232138",
-                  borderRadius: "25px",
-                  marginTop: "80px",
-                  minHeight: "52px",
-                }}
-                _focus={{ boxShadow: "none" }}
-                //onClick={confirmSignUp}
-              >
-                Confirm
-              </Button>
-            ) : (
-              <Button
-                isLoading
-                width="100%"
-                style={{
-                  backgroundColor: "#232138",
-                  borderRadius: "25px",
-                  marginTop: "20px",
-                  minHeight: "52px",
-                }}
-                //onClick={confirmSignUp}
-                _focus={{ boxShadow: "none" }}
-              >
-                Confirm
-              </Button>
-            )}
-          </div>
-        </Container>
-      )} */
-      }
     </div>
   );
 }

@@ -14,7 +14,6 @@ html {
 }
 
 #root {
-  height: 190%;
-  overflow: scroll;
-  background-color: #c8c6e7;
+  height: 100%;
+  width: 100%;
 }
