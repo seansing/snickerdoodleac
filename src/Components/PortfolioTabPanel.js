@@ -125,7 +125,7 @@ function PortfolioTabPanel() {
     {
       image:
         "https://assets.nbatopshot.com/editions/2_base_set_common/2d0fe5aa-617a-4492-89d2-faa125e4b196/play_2d0fe5aa-617a-4492-89d2-faa125e4b196_2_base_set_common_capture_Hero_2880_2880_Black.jpg",
-      name: "Lebron James",
+      name: "LeBron James",
       name2: "Dunk Base Set (Series 2)",
       price: "$20",
       state: "Est. Price",
