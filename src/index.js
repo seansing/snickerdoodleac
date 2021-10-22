@@ -12,12 +12,17 @@ const theme = extendTheme({
   colors: {
     brand: {
       600: "#FFD68F",
+      500: "#232039",
     },
     main: {
-      600:"#232039"
-    }
+      600: "#232039",
+      500: "#232039",
+    },
+    brandlight: {
+      500: "#786DB2",
+    },
   },
-}); 
+});
 
 ReactDOM.render(
   <ChakraProvider theme={theme}>
