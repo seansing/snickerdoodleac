@@ -797,9 +797,9 @@ function App() {
                     marginRight: "auto",
                   }}
                 />
-                <Tab _focus={{ boxShadow: "none" }}>Portfolio</Tab>
                 <Tab _focus={{ boxShadow: "none" }}>Rewards</Tab>
                 <Tab _focus={{ boxShadow: "none" }}>Profile</Tab>
+                <Tab _focus={{ boxShadow: "none" }}>Account</Tab>
                 <img
                   src={moreIcon}
                   alt="more icon"
@@ -808,9 +808,6 @@ function App() {
               </TabList>
 
               <TabPanels>
-                <TabPanel style={{ padding: 0 }}>
-                  <PortfolioTabPanel></PortfolioTabPanel>
-                </TabPanel>
                 <TabPanel style={{ padding: 0 }}>
                   <Tabs colorScheme="main">
                     <TabList
@@ -1116,6 +1113,9 @@ function App() {
                       </TabPanel>
                     </TabPanels>
                   </Tabs>
+                </TabPanel>
+                <TabPanel style={{ padding: 0 }}>
+                  <PortfolioTabPanel></PortfolioTabPanel>
                 </TabPanel>
                 <TabPanel style={{ padding: 0 }}>
                   <ProfileTabPanel

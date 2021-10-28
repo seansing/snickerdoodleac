@@ -173,7 +173,8 @@ function ProfileTabPanel(props) {
                   }}
                 >
                   <h1 style={{ color: "#857DB0" }}>Location</h1>
-                  <h2>{props.location}</h2>
+                  {/* <h2>{props.location}</h2> */}
+                  <h2>California</h2>
                 </div>
               </div>
             </div>

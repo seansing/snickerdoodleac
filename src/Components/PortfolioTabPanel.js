@@ -161,6 +161,9 @@ function PortfolioTabPanel() {
           <Tab _focus={{ boxShadow: "none" }} style={{ fontWeight: "bolder" }}>
             Stats
           </Tab>
+          <Tab _focus={{ boxShadow: "none" }} style={{ fontWeight: "bolder" }}>
+            Interests
+          </Tab>
         </TabList>
         <TabPanels>
           <TabPanel>
@@ -342,8 +345,10 @@ function PortfolioTabPanel() {
               }}
             >
               <div style={{ textAlign: "left" }}>
-                <h1 style={{ fontWeight: 600 }}>All Collections</h1>
-                <span style={{ color: "#777E93" }}>{NFTList.length} NFTs</span>
+                <h1 style={{ fontWeight: 600 }}>All Collections (24 NFTs)</h1>
+                <span style={{ color: "#777E93" }}>
+                  {NFTList.length} Most Recent NFTs
+                </span>
               </div>
               <div>
                 <span
@@ -567,6 +572,18 @@ function PortfolioTabPanel() {
             </Box>
           </TabPanel>
           <TabPanel>
+            <div style={{ textAlign: "left", margin: "15px" }}>
+              <span
+                style={{
+                  fontWeight: "bold",
+                  color: "grey",
+                  fontSize: "16px",
+                  textAlign: "left",
+                }}
+              >
+                My Interests
+              </span>
+            </div>
             <div
               style={{
                 border: "solid 1px #CEC6FF",
@@ -655,6 +672,151 @@ function PortfolioTabPanel() {
                   }}
                 >
                   {statsList.totalFundsReceived}
+                </span>
+              </div>
+            </div>
+            <div
+              style={{ textAlign: "left", margin: "15px", marginTop: "30px" }}
+            >
+              <span
+                style={{
+                  fontWeight: "bold",
+                  color: "grey",
+                  fontSize: "16px",
+                  textAlign: "left",
+                }}
+              >
+                Applications Used
+              </span>
+            </div>
+            <div
+              style={{
+                border: "solid 1px #e0e0e0",
+                padding: "20px",
+                borderRadius: "10px",
+                marginBottom: "10px",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <img
+                src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco,dpr_1/bmbgoqtahdiy8uxjn7zv"
+                alt="opensea logo"
+                style={{ height: "50px", marginRight: "10px" }}
+              />
+              OpenSea
+            </div>
+            <div
+              style={{
+                border: "solid 1px #e0e0e0",
+                padding: "20px",
+                borderRadius: "10px",
+                marginBottom: "10px",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <img
+                src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBEREhISEhISEhIPEhEQEQ8PEhISEg8SGBQZGRgVGBYcIS4lHB4rHxgYJjgmKy8xNTU1GiQ7QDs0Py40NTEBDAwMEA8QHxISHzEhJCE0MTQ0NDQxNDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NP/AABEIAOEA4QMBIgACEQEDEQH/xAAcAAEAAQUBAQAAAAAAAAAAAAAAAQIEBQYIAwf/xABEEAACAQIDAggKCQMCBwAAAAAAAQIDEQQhMQUSE0FRUmFxkdEGIjIzVHOSk7LBBxQVQoGho7HSF7PhYvAjJDRTcnSC/8QAGgEBAAIDAQAAAAAAAAAAAAAAAAQGAgMFAf/EADQRAAIBAgMEBwYHAQAAAAAAAAABAgMRBAUxEiFBURMUMlNhcaEGFiJCgbEVI1KRwdHhM//aAAwDAQACEQMRAD8A+zAAAAAAAEMAkhlLnbUsMRtKKyh4z5dER6+Ip0Y3m7GUYuTsi/bXH+Za1sdCOV7vkjmYmriJz1k7ciyR5WOBiM+elGP1ZJhheMjIVNpt+TFLplmW08ZUf3rdSSPBEnIq5liaj+KT+hIjRguAlUk9W+1kNsAhym3qzNJLQImM5LRvtZBIU3HRhpPU9Y4uovvP8bMuKe0prykn1ZFkQS6eYYin2ZswdGD4GZpbQpy1e63zu8u1JPTPqNbK6dWcfJk18zrYfPpXtVjfxRonhf0mxoqMVh9prSat/qV7GRhNSV1ZrlRYMPi6VeN4P6cSLKDi7M9AQiSSYgAAAAAAAAAAAAEENhuwJuW+JxMaazefFFas8sZjFDJZyfFxLpZhpTcm23ds42YZrGh8EN8vsb6VFz3vQ9cRi5z1yjzV/vM8QCo1a860tqbuyfGKirIAA1HoAAAAAAAAAAAAAAAPShiZQd4vLjT0Z5g2U6s6UtqDszxxTVmZzCYyNTolxxfyLpM1lNrNOzWjMtgsdvWjLKXE+KX+S15fm0a1oVd0uHiQatDZ3x0MkCm5Ud3UjgAAAAAAAi4AZZY3FqmrLOT06Fys9cViFCLfHolyswM5uTbbu2cbNMw6COxDtP0N9Gltu70IlJvN5t53YAKbKTk2273OgAAeAAAAAAAAAAAAAAAAAAAAAABAHqbW9Ay2Axm94kn43E397/JkEzWItp3XFo0ZzA4lTjn5SyfeW7Kcx6VdFUfxLTx/0gV6WzvWhegi5J3SOAAACiUrfgVGO2pXst1POWvQkR8TXjRpucuBlCLlKyMfjK+/O/3VlHvPEAoFatKtNzlxOnGKirIAA1GQAAAAAAAAAAAAAAAAAAAAAAAAAAAK6FVwkpLi1XKigGdOpKnJSjqjxpNWZsdKakk1mmro9TEbLr5uD64/NGVRfsHiFXpKa+pzKkHCVmVAgEswKW7K5r2Iqb85S4r2XUZbaFXdpu2svFX4mFRWM+xG+NFebJeFh8zAAK0TASQSACnfXKu1d5MdUc046tPhanjy87U+8+czrZblqxik3K1rGmrV2LbjpTfXLHtQ31yx7TmN1p8+ftMcPPnz9pnT93Y956GnrT5HTm+uWPaTvrlj2nMXDz58/aY4afOn7THu7HvPQdbfI6d31yx7SN9cse05j4efPn7THDT50/aY93Y956Drb5HTu+uVdpG+uVdqOY+Hnz5+0xw0+dL2mPd2Peeg60+R05wi5V2olO+ln1M5h4afPl7TPWGNqxzjVqRf+mcl8x7ux7z0HWvA6aCOeMD4VbQo24PF11bO058JH2Z3RuewfpRmpRhjacZxeTr0Vuyh0uGkl1NEWvkNaCvTal6MzjiYvXcfVSC3wWMp14Rq0pxnCavGSd018n0FycOcJQlsyVmiSncgAGAAAAJhNxaktU7mxUpqUU1o1c1xmW2VUvBx5r/JlgyLEuNR0nxIuJhu2i/BALTtSIW8xW1Z3cY8njFgj3x071JdFl+R4lEzGr0mJlI6dGNoIgAEE2AkgkAhao5l2h56r6yp8TOm1qjmTaHnqvrKnxMtPs72annH7EPE6otQSQixkQArsi8Wy8Q7NYeu00mmqVRprlTsJWjqwWAL/wCycT6PX9zU7iPsrE+j1/c1O4x2480e2LEF/wDZWJ9Gr+5qdwWycT6PX9zU7htx5oWLAFzXwtSn5dOcL6b8JQv2luZHhBVFlIQBv/0XbdlQxUcLJt0sU2km/IqqL3ZLkvZxf4ch9kTObNjVZQxOHktY1qTXto6UazfWVX2gpRjUjNfMnf6E7DN2a5AAFdJIAAALrZk92pbnK3ZmWpVRnuyi+lfuSsHUdOvGS4MwqK8WbHcgo3kC8dbh4HMszAVZXlJ9LIIYKBOW02/E6qVlYAAwPQSQSAFqjmTaHnavrJ/Gzptao5kx/navrJ/Gy0+zvZqecfsQsVqi2IRJCLIRStHRezNsYZUKKeIopqlSTXCwyagstTnNMhkLG4KOLiottWNlOpscDpZ7ZwvpND3sO8j7awvpND30O85qFznfgFP9cvQ29ZfI6W+2sL6TQ99DvH2zhfSaHvYd5zSB+AU/1y9B1l8j7X9Ie2MDPBVabq0qlWajwMYSjOUZprxsvJS+Z8TKrlJ1cLhlhqfRpt+ZpnPbd9BYWCM3sbwcxWMklQpTlG9nVa3aceuby7M+gkNpK7djFK5ceA+zZYnH4aCV4wqKtN8UYQ8Zt9F0l+J0Ea34H+C1PZ1OSuqlerZ1atssvuR5I6mxlLzjGxxFVKGkd3mT6EHGO/iAAcc3gAAAN8fJmAzKLs78g9DJ8MDH74JvWWR+hKGCaitJrkbBCmrOxvTuiAAYnoJIJAC1RzJj/O1fWT+NnTa1RzJtDz1X1k/jZafZ3s1POP2IWK1RbEEkIshFJBMUb9h/ovxc4Qmq+HSnGM0nwl0pJOzyNVavToq9SVr8z1RctDQLEWPof9KcX6Rhv1P4j+lOM9Iw36n8SN+I4TvEZ9FPkfPSD6H/AEoxfpGH/U/iF9FOL9Iw36n8R+I4TvEOinyPnlgbdt3wCx2DpyqyVOrSgrznRk24R50otJ26TU3ElU6kKkdqDujBxa3MpMnsnbGIwk9+hVnSa1UX4suiUXk/xMYyUZtJ7meH3jwK8LobQhKE0oYmnHelBZRqR034Lr1XFc2s5w8H9qSwmJpV4tp05pytxweU1bjvFs6NjJOzWjSa6mrop+c4GNCanDcpcOT5LwOhQqbS3lQJIOGbwAAAGSUsyiruwK+DBf8ABdAJfV2aelLTGxtOXS7/AJHkXu1adpKXOVuwsRmFN08RKPiZUpXggACEbASQACVqjmTH+dq+sn8bOmlqjmXaHnqvrKnxMtPs72annH7EPFcC2IBKLGRCTpbZfmKPqafwI5pOmNl+Yo+pp/Aiv+0D/Lh5v7EvC6suAVAqlyYLCwAuwROCknFpNSTjJPRpqzT/AAOZ8bBQqVIrSNSpGK5EpNL9jpo5m2n5+t66r8bLP7Oyf5i8iJiuBZsIMIshDKjpbZLvh8P00KP9uJzQdL7I/wCnw/qKH9uJwfaD/jDz/glYbtMvGACok0AAAkmlG84rla/cpLrZ0N6afNV/kScHT6StGK4tGFR2i2ZXcQPTdJLv1KPJHL2pFptKnvU2+b4xhkbJON01xNGvVqe5KUXxPtXEcLPsO1KNZeTJmFn8rKAAVwlgAkAiOq6zmrHUJ8LU8Sfnan3Zc59B0syLs62W5ksGpXjtbVuNjTVpdJbecxPDz5k/Zl3D6vPmS7H3HTt30C51PeKPdv8Adf0aeqvmcx/V5/8Abn7MjpHZXmKHqafwIu7sI5uZZmsZGMVG1m+N/wCDdSo9G3vAAOObgAAAjmzaVGbrVvEm/wDjVdIvns6TFzq5bmCwe1eN9q3Gxpq0uktvOYvq8+ZLsl3D6vPmS7Jdx07dkXZ1PeKPdv8Adf0aeqvmcx/V58yXsy7jpHY6/wCWw/8A69H+3EvMyTnZlmixkFFRtZ31ubaVHYd73IBJBxzeAAADKbJpWi5c52XUjFxi20lq3Y2KjT3YqK4kd7IsPtVXVekSLiZ2WzzKgSC1WZD2vAmxjNq0NJriyl1PQyp51Ippp6NWNWKw8a9Jwf0MoTcXdGtg9MRR3JOPFqnyo8ygVaUqcnGWqOnFpq6AANZ6AAAAAAAAAAAAAAAAAAAAAAAAAAAACacHOSitW+wyhCU5bMTxuy3l9suheW89Fkusy6R50KahFRWiR7F+wOGWHoqPHicypPblcgEgmGAIJABZ4zDcJHpWafyMFK6yazWqNoaMdtDB73jR8parnLvOFmuXdKulpr4lw5kihW2fhehiQAVFqzsTwADwAAAAAAAAAAAAAAAAAAAAAAAABGY2fhNxbz8qX5LkPHZ2E+/Jf+Kf7syiRa8py5wXTVFv4Ll4+ZBr1b/CgkVAFhIwAAAAAAKWVA8auDGY7Ab3jR8rjXO/yYpprJ5Nap8RszRaYvBRmr6S53ecLMcqVW86W6XLn/pIpV3HdLQwgK61GcHaSt08T6imxValOVOWzJWZOUk96IBJBrPQAAAAAAAAAAAAAAAAVQpym7RV/kZQhKb2Yq7DaW8pMjgcC8pT61F/uy4weBUM5Zy/JdRepFpy/KVBqpW14Ll5+JCq19rdEhRKwCwJWIoAB6AAAAAAAAAAQyQAeVSkpKzV10mNxGzXrB//AC+8y5BExGDpV1aa+pnCpKGhrM4SjlJNdZBsU6cZZNJrpLOts2D8luP5or2IyKpHfSe0SoYlfMYkF3U2dOOlpdWRbTpTWsZdjOTUwVem7Sg0b1Ui9GUgO/GRcjuLWpldEgi5KZ5s30PW7EkFUac3pFvqTPengKkuLd6yRTwdeo7Ri2YOpFcS2EYt5JN9RlKWzIrypN9CyRfU6MY+Skuo6uHyKrLfVeyjRLEx0iYvDbOk855LkTzMpRoRgrRVvmeiKixYbA0cOvgW/mRp1JT1IRIBMNYAAAAAAAAAAAAAAAAAAIYABSyGAY/MFqGUS0ANGK7P0PV2iwxBY1QCl4nUnUSKZe0OIA8wvaPaxkIaFaJBcsFoQH2ggASl2jx6laJAMgAAAAAAAAAAAAf/2Q=="
+                alt="opensea logo"
+                style={{ height: "50px", marginRight: "10px" }}
+              />
+              Rarible
+            </div>
+          </TabPanel>
+          <TabPanel>
+            <div style={{ textAlign: "left", margin: "15px" }}>
+              <span
+                style={{
+                  fontWeight: "bold",
+                  color: "grey",
+                  fontSize: "16px",
+                  textAlign: "left",
+                }}
+              >
+                My Interests
+              </span>
+            </div>
+            <div
+              style={{
+                border: "solid 1px #CEC6FF",
+                borderRadius: "10px",
+                padding: "10px 20px 10px 20px",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  padding: "15px 5px 15px 5px",
+                  borderBottom: "solid 1px #E0E0E0",
+                }}
+              >
+                <span
+                  style={{
+                    fontWeight: "bold",
+                    color: "#3B3370",
+                    fontSize: "16px",
+                  }}
+                >
+                  Sports
+                </span>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  padding: "15px 5px 15px 5px",
+                  borderBottom: "solid 1px #E0E0E0",
+                }}
+              >
+                <span
+                  style={{
+                    fontWeight: "bold",
+                    color: "#3B3370",
+                    fontSize: "16px",
+                  }}
+                >
+                  NFT Gaming
+                </span>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  padding: "15px 5px 15px 5px",
+                  borderBottom: "solid 1px #E0E0E0",
+                }}
+              >
+                <span
+                  style={{
+                    fontWeight: "bold",
+                    color: "#3B3370",
+                    fontSize: "16px",
+                  }}
+                >
+                  Art
+                </span>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  padding: "15px 5px 15px 5px",
+                }}
+              >
+                <span
+                  style={{
+                    fontWeight: "bold",
+                    color: "#3B3370",
+                    fontSize: "16px",
+                  }}
+                >
+                  Tradiational Game Collectibles
                 </span>
               </div>
             </div>
