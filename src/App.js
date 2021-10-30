@@ -124,7 +124,7 @@ function App() {
 
   const myRewardsList = [
     {
-      company: "Netflix",
+      company: "LGGG",
       logo: netflixLogo,
       image:
         "https://www.thebytenews.com/wp-content/uploads/2021/08/1182202-bg-full-netflix-grid-v2.desktop-1170x658.jpg",
