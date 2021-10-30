@@ -132,7 +132,7 @@ function App() {
         "You are sharing your Profile with Netflix so you get $5 off your subscription",
     },
     {
-      company: "Nike",
+      company: "Lggg",
       logo: nikeLogo,
       image:
         "https://hips.hearstapps.com/esq.h-cdn.co/assets/16/40/1475524585-2015-nike-mag-02-original.jpg",
