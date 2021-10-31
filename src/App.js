@@ -101,6 +101,13 @@ function App() {
 
   const availableRewardsList = [
     {
+      company: "LG",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/LG_symbol.svg/1024px-LG_symbol.svg.png",
+      image:
+        "https://www.lg.com/eg_en/images/tvs/md07532681/gallery/medium04.jpg",
+      detail: "Digital Twin NFT of Purchased Smart TV",
+    },
+    {
       company: "Adidas",
       logo: adidasLogo,
       image: adidasShoe,
@@ -124,7 +131,7 @@ function App() {
 
   const myRewardsList = [
     {
-      company: "LGGG",
+      company: "Netflix",
       logo: netflixLogo,
       image:
         "https://www.thebytenews.com/wp-content/uploads/2021/08/1182202-bg-full-netflix-grid-v2.desktop-1170x658.jpg",
@@ -132,7 +139,7 @@ function App() {
         "You are sharing your Profile with Netflix so you get $5 off your subscription",
     },
     {
-      company: "Lggg",
+      company: "Nike",
       logo: nikeLogo,
       image:
         "https://hips.hearstapps.com/esq.h-cdn.co/assets/16/40/1475524585-2015-nike-mag-02-original.jpg",
@@ -145,6 +152,14 @@ function App() {
       image: adidasShoe,
       detail:
         "You received a NFT of the ULTRABOOST 20 X JAMES BOND shoes from Adidas because you shared your profile with them",
+    },
+    {
+      company: "LG",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/LG_symbol.svg/1024px-LG_symbol.svg.png",
+      image:
+        "https://www.lg.com/eg_en/images/tvs/md07532681/gallery/medium04.jpg",
+      detail:
+        "You received a NFT of the LG Z1 8K Smart OLED TV from LG because you shared your Profile with them",
     },
   ];
 

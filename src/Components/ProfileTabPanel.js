@@ -45,6 +45,20 @@ function ProfileTabPanel(props) {
 
   const dataPermissionList = [
     {
+      company: "LG",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/LG_symbol.svg/1024px-LG_symbol.svg.png",
+      duration: 12,
+      limitations:
+        "They do not have the right to export or share data with other parties.",
+    },
+    {
+      company: "Adidas",
+      logo: AdidasIcon,
+      duration: 10,
+      limitations:
+        "They do not have the right to export or share data with other parties.",
+    },
+    {
       company: "Adidas",
       logo: AdidasIcon,
       duration: 10,
