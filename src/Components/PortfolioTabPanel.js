@@ -779,6 +779,25 @@ function PortfolioTabPanel() {
                     fontSize: "16px",
                   }}
                 >
+                  Electronic Goods
+                </span>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  padding: "15px 5px 15px 5px",
+                  borderBottom: "solid 1px #E0E0E0",
+                }}
+              >
+                <span
+                  style={{
+                    fontWeight: "bold",
+                    color: "#3B3370",
+                    fontSize: "16px",
+                  }}
+                >
                   NFT Gaming
                 </span>
               </div>
@@ -816,7 +835,7 @@ function PortfolioTabPanel() {
                     fontSize: "16px",
                   }}
                 >
-                  Tradiational Game Collectibles
+                  Traditional Game Collectibles
                 </span>
               </div>
             </div>
