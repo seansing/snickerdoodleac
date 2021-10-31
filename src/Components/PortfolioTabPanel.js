@@ -816,7 +816,7 @@ function PortfolioTabPanel() {
                     fontSize: "16px",
                   }}
                 >
-                  Tradiational Game Collectibles
+                  Traditional Game Collectibles
                 </span>
               </div>
             </div>
