@@ -525,7 +525,7 @@ function ProfileTabPanel(props) {
                   <div style={{ marginTop: "20px" }}>
                     <span>Connected Wallet : </span>
                     <span style={{ color: "orange", fontSize: "12px" }}>
-                      {props.account}
+                      0x71c7656ec7ab88b098defb751b7401b5f6d8976f
                     </span>
                     <Box
                       style={{
