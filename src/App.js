@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { ethers } from "ethers";
+import React, { useState } from "react";
+/* import { ethers } from "ethers"; */
 import "./App.css";
 import SDLogo from "./assets/logo_snicker_darkbg.svg";
 import SDTokenLogo from "./assets/logo_token.svg";
@@ -49,7 +49,7 @@ import CeramicClient from "@ceramicnetwork/http-client";
 import KeyDidResolver from "key-did-resolver";
 import ThreeIdResolver from "@ceramicnetwork/3id-did-resolver";
 import { DID } from "dids";
-import { ThreeIdConnect, EthereumAuthProvider } from "@3id/connect";
+/* import { ThreeIdConnect, EthereumAuthProvider } from "@3id/connect"; */
 import { IDX } from "@ceramicstudio/idx";
 
 const API_URL = "https://ceramic-clay.3boxlabs.com";
@@ -75,19 +75,19 @@ const pageStatus = {
   accounts: "",
   email: "",
   authCode: "",
-  pageType: "landing",
+  pageType: "profilePage",
   confirmSignUpClicked: false,
 };
 
 function App() {
   const [page, updatePage] = useState(pageStatus);
-  const [accounts, setAccounts] = useState("");
+  const [accounts] = useState("");
   const [email, setEmail] = useState("");
   const [gender, setGender] = useState("");
   const [age, setAge] = useState("");
   const [location, setLocation] = useState("");
   const [doneClicked, setDoneClicked] = useState(false);
-  const [loginText, setLoginText] = useState(
+  const [loginText] = useState(
     "Please connect your MetaMask wallet and IDX to login."
   );
   const [modalDetails, setModalDetails] = useState({
@@ -148,6 +148,7 @@ function App() {
     },
   ];
 
+  /*
   useEffect(() => {
     async function getWeb3() {
       new Promise((resolve, reject) => {
@@ -218,6 +219,7 @@ function App() {
 
     getWeb3();
   }, []);
+  */
 
   async function onClickDone() {
     setDoneClicked(true);

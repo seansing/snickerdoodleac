@@ -154,7 +154,8 @@ function ProfileTabPanel(props) {
                   }}
                 >
                   <h1 style={{ color: "#857DB0" }}>Gender</h1>
-                  <h2>{props.gender}</h2>
+                  {/* <h2>{props.gender}</h2> */}
+                  <h2>Male</h2>
                 </div>
                 <div
                   style={{
@@ -164,7 +165,8 @@ function ProfileTabPanel(props) {
                   }}
                 >
                   <h1 style={{ color: "#857DB0" }}>Age</h1>
-                  <h2>{props.age}</h2>
+                  {/* <h2>{props.age}</h2> */}
+                  <h2>30</h2>
                 </div>
                 <div
                   style={{
