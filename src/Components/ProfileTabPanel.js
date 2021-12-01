@@ -168,7 +168,8 @@ function ProfileTabPanel(props) {
                   }}
                 >
                   <h1 style={{ color: "#857DB0" }}>Gender</h1>
-                  <h2>{props.gender}</h2>
+                  {/* <h2>{props.gender}</h2> */}
+                  <h2>Male</h2>
                 </div>
                 <div
                   style={{
@@ -178,7 +179,8 @@ function ProfileTabPanel(props) {
                   }}
                 >
                   <h1 style={{ color: "#857DB0" }}>Age</h1>
-                  <h2>{props.age}</h2>
+                  {/* <h2>{props.age}</h2> */}
+                  <h2>30</h2>
                 </div>
                 <div
                   style={{
@@ -536,8 +538,11 @@ function ProfileTabPanel(props) {
                 <AccordionPanel pb={4}>
                   <div style={{ marginTop: "20px" }}>
                     <span>Connected Wallet : </span>
-                    <span style={{ color: "orange", fontSize: "12px" }}>
+                    {/* <span style={{ color: "orange", fontSize: "12px" }}>
                       {props.account}
+                    </span> */}
+                    <span style={{ color: "orange", fontSize: "12px" }}>
+                      0x71c7656ec7ab88b098defb751b7401b5f6d8976f
                     </span>
                     <Box
                       style={{
