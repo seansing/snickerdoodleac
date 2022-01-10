@@ -725,7 +725,7 @@ function ProfileTabPanel(props) {
                         }}
                       >
                         <img
-                          src="https://pbs.twimg.com/profile_images/1376465558577639430/i3rkPwpb.jpg"
+                          src="https://pbs.twimg.com/profile_images/1473973493498712065/7DwyK5yf_400x400.jpg"
                           alt="polka logo"
                           style={{
                             width: "50px",
